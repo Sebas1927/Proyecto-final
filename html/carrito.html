@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito de Compra</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Carrito de Compra</h1>
+    </header>
+
+    <main>
+      <section id="carritoCompra">
+        <div id="contenedorCarrito">
+          <!-- Sección izquierda: Tabla de productos seleccionados -->
+          <section id="tablaProductos">
+            <h2>Productos Seleccionados</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Precio</th>
+                  <th>Cantidad</th>
+                  <th>Total</th>
+                  <th>Eliminar</th>
+                </tr>
+              </thead>
+              <tbody id="contenidoCarrito">
+                <!-- Filas de productos generadas dinámicamente -->
+              </tbody>
+            </table>
+          </section>
+
+          <!-- Sección derecha: Validación de información de tarjeta -->
+          <aside id="formularioTarjeta">
+            <h2>Información de Pago</h2>
+            <form id="form-tarjeta">
+              <label for="numTarjeta">Número de Tarjeta:</label>
+              <input type="text" id="numTarjeta" maxlength="16" required />
+
+              <label for="expiracion">Fecha de Expiración (MM/AA):</label>
+              <input type="text" id="expiracion" placeholder="MM/AA" required />
+
+              <label for="codigo">Código de Seguridad:</label>
+              <input type="password" id="codigo" maxlength="3" required />
+
+              <label for="nombre-titular">Nombre del Titular: </label>
+              <input type="text" id="nombre-titular" required />
+
+              <label for="pais">País de Emisión: </label>
+              <select id="pais" required>
+                <option value="Colombia">Colombia¿</option>
+
+                <option value="México">México</option>
+                <option value="España">España</option>
+              </select>
+
+              <button type="button" onclick="confirmarCompra()">
+                Confirmar Compra
+              </button>
+            </form>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <!-- Botón para volver al catálogo de productos -->
+    <footer>
+      <nav class="navegacion">
+        <a href="productos.html">Volver al Catálogo de Productos</a>
+      </nav>
+    </footer>
+
+     <script src="../javascript/carrito.js"></script> 
+  </body>
+</html>
