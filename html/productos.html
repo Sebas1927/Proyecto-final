@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo de Productos</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Catálogo de Camisetas</h1>
+    </header>
+
+    <main>
+      <!-- Filtros en la parte superior -->
+      <section id="filtros">
+        <select id="filtroTipo">
+          <option value="">Filtrar por Tipo</option>
+          <option value="Camiseta de Local">Camiseta de Local</option>
+          <option value="Camiseta de Visitante">Camiseta de Visitante</option>
+          <option value="Camiseta de Entrenamiento">
+            Camiseta de Entrenamiento
+          </option>
+        </select>
+        <input type="text" id="filtroEquipo" placeholder="Filtrar por Equipo" />
+        <button id="filtrar" onclick="filtrarProductos()">Filtrar</button>
+        <button id="limpiarFiltros" onclick="limpiarFiltros()">
+          Limpiar Filtros
+        </button>
+      </section>
+
+      <section id="contenedorProductos">
+        <!-- Sección izquierda: Lista de productos con scroll infinito -->
+        <div id="listaProductos" class="scrollInfinito">
+          <!-- Productos cargados dinámicamente -->
+        </div>
+
+        <!-- Sección derecha: Detalle del producto seleccionado -->
+        <aside id="detalleProducto">
+          <h2>Detalle del Producto</h2>
+          <article id="productoSeleccionado">
+            <!-- Información detallada del producto cargada dinámicamente -->
+          </article>
+          <button id="agregarCarrito">Agregar al Carrito</button>
+        </aside>
+      </section>
+    </main>
+
+    <!-- Botón para navegar al carrito de compras -->
+    <footer>
+      <nav class="navegacion">
+        <a href="carrito.html">Ir al Carrito de Compra</a>
+      </nav>
+    </footer>
+
+    <script src="../javascript/productos.js"></script>
+  </body>
+</html>
