@@ -314,3 +314,64 @@ const productos = [
         "https://www.footballkitarchive.com/es/red-bull-salzburg-2022-23-away-kit/",
     },
   ];
+
+  
+// Detectar scroll para cargar más productos
+document
+.getElementById("listaProductos")
+.addEventListener("scroll", function () {
+  const { scrollTop, scrollHeight, clientHeight } = this;
+  if (scrollTop + clientHeight >= scrollHeight) {
+    cargarProductos();
+  }
+});
+
+// Función para mostrar el detalle del producto seleccionado
+function mostrarDetalleProducto(idProducto) {
+const producto = productos.find((prod) => prod.id === idProducto);
+const detalleContainer = document.getElementById("productoSeleccionado");
+detalleContainer.innerHTML = `
+      <h3>${producto.nombre}</h3>
+      <p>Equipo: ${producto.equipo}</p>
+      <p>Precio: $${producto.precio}</p>
+  `;
+}
+
+// Función para filtrar los productos
+function filtrarProductos() {
+const tipo = document.getElementById("filtroTipo").value;
+const equipo = document.getElementById("filtroEquipo").value.toLowerCase();
+
+const listaProductos = document.getElementById("lista-productos");
+listaProductos.innerHTML = ""; // Limpiar la lista de productos
+
+// Filtrar productos y mostrarlos
+const productosFiltrados = productos.filter((producto) => {
+  const coincideTipo = tipo === "" || producto.tipo === tipo;
+  const coincideEquipo =
+    equipo === "" || producto.equipo.toLowerCase().includes(equipo);
+  return coincideTipo && coincideEquipo;
+});
+
+productosFiltrados.forEach((producto) => {
+  const productoDiv = document.createElement("div");
+  productoDiv.classList.add("producto");
+  productoDiv.innerHTML = `
+          <h3>${producto.nombre}</h3>
+          <p>Equipo: ${producto.equipo}</p>
+          <p>Precio: $${producto.precio}</p>
+          <button onclick="mostrarDetalleProducto(${producto.id})">Ver Detalle</button>
+      `;
+  listaProductos.appendChild(productoDiv);
+});
+}
+
+// Función para limpiar los filtros
+function limpiarFiltros() {
+document.getElementById("filtroTipo").value = "";
+document.getElementById("filtroEquipo").value = "";
+cargarProductos();
+}
+
+// Inicializar la carga inicial de productos
+document.addEventListener("DOMContentLoaded", cargarProductos);

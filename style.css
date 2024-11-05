@@ -124,7 +124,7 @@ body {
   }
   
   /* Sección derecha: Detalle del producto */
-  #detalle-producto {
+  #detalleProducto {
     flex: 1;
     padding: 20px;
     background-color: #ffe5d9;
