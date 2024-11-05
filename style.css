@@ -20,7 +20,7 @@ body {
   
   h1,
   h2 {
-    color: #2b3a67;
+    color: #ffffff;
   }
   
   .navegacion a {
@@ -124,7 +124,7 @@ body {
   }
   
   /* Sección derecha: Detalle del producto */
-  #detalleProducto {
+  #detalleroducto {
     flex: 1;
     padding: 20px;
     background-color: #ffe5d9;
@@ -185,5 +185,39 @@ body {
     border-radius: 4px;
     width: 100%;
   }
+  /* Estilos para el header */
+header {
+    display: flex;
+    align-items: left;
+    padding: 10px;
+    background-color: #f8f9fa; /* Puedes cambiar el color de fondo */
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+  }
   
-    
+  /* Contenedor del logo y slogan */
+  .logo-container {
+    display: flex;
+    align-items: left;
+  }
+  
+  .logo {
+    width: 50px; /* Ajusta el tamaño del logo */
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .slogan {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333; /* Cambia el color según prefieras */
+  }
+  
+  /* Estilo del título principal */
+  h1 {
+    font-size: 1.5em;
+    color: #333;
+    padding: 20px;
+  }
+  
+  
+  

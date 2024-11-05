@@ -336,42 +336,55 @@ detalleContainer.innerHTML = `
       <p>Precio: $${producto.precio}</p>
   `;
 }
+let producto = []; // Array que contiene todos los productos
+let productosMostrados = 0; // Contador de productos mostrados
 
-// Función para filtrar los productos
-function filtrarProductos() {
-const tipo = document.getElementById("filtroTipo").value;
-const equipo = document.getElementById("filtroEquipo").value.toLowerCase();
-
-const listaProductos = document.getElementById("lista-productos");
-listaProductos.innerHTML = ""; // Limpiar la lista de productos
-
-// Filtrar productos y mostrarlos
-const productosFiltrados = productos.filter((producto) => {
-  const coincideTipo = tipo === "" || producto.tipo === tipo;
-  const coincideEquipo =
-    equipo === "" || producto.equipo.toLowerCase().includes(equipo);
-  return coincideTipo && coincideEquipo;
-});
-
-productosFiltrados.forEach((producto) => {
-  const productoDiv = document.createElement("div");
-  productoDiv.classList.add("producto");
-  productoDiv.innerHTML = `
-          <h3>${producto.nombre}</h3>
-          <p>Equipo: ${producto.equipo}</p>
-          <p>Precio: $${producto.precio}</p>
-          <button onclick="mostrarDetalleProducto(${producto.id})">Ver Detalle</button>
-      `;
-  listaProductos.appendChild(productoDiv);
-});
+function cargarProductos() {
+    const listaProductos = document.getElementById('listaProductos');
+    for (let i = productosMostrados; i < productosMostrados + 15 && i < productos.length; i++) {
+        const producto = productos[i];
+        const tarjetaProducto = document.createElement('div');
+        tarjetaProducto.classList.add('tarjeta');
+        tarjetaProducto.innerHTML = `
+            <h3>${producto.nombre}</h3>
+            <p>Precio: ${producto.precio}</p>
+            <p>Descripción: ${producto.descripcion}</p>
+            <button onclick="verDetalle(${i})">Ver Detalle</button>
+        `;
+        listaProductos.appendChild(tarjetaProducto);
+    }
+    productosMostrados += 15;
+    if (productosMostrados >= productos.length) {
+        const mensajeFinal = document.createElement('p');
+        mensajeFinal.textContent = 'No hay más productos por cargar.';
+        listaProductos.appendChild(mensajeFinal);
+    }
 }
 
-// Función para limpiar los filtros
-function limpiarFiltros() {
-document.getElementById("filtroTipo").value = "";
-document.getElementById("filtroEquipo").value = "";
-cargarProductos();
+window.addEventListener('scroll', () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        cargarProductos();
+    }
+});
+
+function verDetalle(index) {
+    const producto = productos[index];
+    const verDetalle = document.getElementById('verDetalle');
+    verDetalle.innerHTML = `
+        <h3>${producto.nombre}</h3>
+        <p>${producto.descripcion}</p>
+        <label for="cantidadProducto">Cantidad:</label>
+        <input type="number" id="cantidadProducto" min="1">
+        <button onclick="agregarAlCarrito(${index})">Agregar al Carrito</button>
+    `;
 }
 
-// Inicializar la carga inicial de productos
-document.addEventListener("DOMContentLoaded", cargarProductos);
+function agregarAlCarrito(index) {
+    const cantidad = document.getElementById('cantidadProducto').value;
+    if (cantidad > 0) {
+        // Añadir al carrito y mostrar confirmación
+        alert('Producto agregado al carrito.');
+    } else {
+        alert('La cantidad debe ser un número positivo.');
+    }
+}

@@ -1,15 +1,33 @@
-// Verificar si los campos del formulario están llenos antes de iniciar la compra
-document.getElementById("iniciarCompra").addEventListener("click", function () {
-    const nombre = document.getElementById("nombre").value;
-    const presupuesto = document.getElementById("presupuesto").value;
-    const cantidad = document.getElementById("cantidad").value;
-    const direccion = document.getElementById("direccion").value;
-  
-    // Verificar que todos los campos estén completos
-    if (nombre && presupuesto && cantidad && direccion) {
-      // Redirigir a la vista de productos
-      window.location.href = "productos.html";
-    } else {
-      alert("Por favor, complete todos los campos del formulario.");
+document.getElementById('iniciarCompra').addEventListener('click', function () {
+    const nombre = document.getElementById('nombre').value.trim();
+    const presupuesto = document.getElementById('presupuesto').value.trim();
+    const cantidad = document.getElementById('cantidad').value.trim();
+    const direccion = document.getElementById('direccion').value.trim();
+    const tipoEntrega = document.getElementById('tipoEntrega').value;
+
+    let mensajeError = '';
+
+    if (!nombre || nombre.length > 20) {
+        mensajeError += 'El nombre es obligatorio y no debe superar 20 caracteres. ';
     }
-  });
+    if (!presupuesto || isNaN(presupuesto) || Number(presupuesto) < 0) {
+        mensajeError += 'El presupuesto debe ser un número positivo. ';
+    }
+    if (!cantidad || isNaN(cantidad) || Number(cantidad) <= 0 || Number(cantidad) > 20) {
+        mensajeError += 'La cantidad debe ser un número positivo y no mayor a 20. ';
+    }
+    if (!direccion) {
+        mensajeError += 'La dirección es obligatoria. ';
+    }
+    if (!tipoEntrega) {
+        mensajeError += 'Debe seleccionar un tipo de entrega. ';
+    }
+
+    const mensajeErrorElem = document.getElementById('mensajeError');
+    if (mensajeError) {
+        mensajeErrorElem.textContent = mensajeError;
+    } else {
+        mensajeErrorElem.textContent = '';
+        window.location.href = 'productos.html'; // Redirige a la vista de productos si todo es correcto
+    }
+});
