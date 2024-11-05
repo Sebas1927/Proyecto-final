@@ -50,7 +50,7 @@ body {
     background-color: #cc5200;
   }
   
-  /* ---------- Vista de Requerimientos de Compra ---------- */
+  /*Vista de Requerimientos de Compra */
   #requerimientosCompra {
     max-width: 400px;
     width: 90%;
@@ -82,7 +82,7 @@ body {
     width: 100%;
   }
   
-  /* ---------- Vista de Productos ---------- */
+  /* Vista de Productos */
   #filtros {
     display: flex;
     justify-content: space-between;
@@ -132,7 +132,7 @@ body {
     border-radius: 8px;
   }
   
-  /* ---------- Vista del Carrito de Compra ---------- */
+  /* Vista del Carrito de Compra */
   #contenedorCarrito {
     display: flex;
     gap: 20px;
