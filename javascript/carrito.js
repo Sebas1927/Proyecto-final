@@ -1,4 +1,5 @@
 let carrito = [];
+let totalPrecio = 0;
 
 // Función para agregar productos al carrito
 function agregarAlCarrito(idProducto) {
@@ -20,21 +21,22 @@ function actualizarCarrito() {
 
     let totalPrecio = 0;
 
-    carrito.forEach((producto) => {
+    carrito.slice(0, 20).forEach((producto) => { // Solo mostrar los primeros 20 productos
         const fila = document.createElement("tr");
         fila.innerHTML = `
             <td>${producto.nombre}</td>
-            <td>$${producto.precio}</td>
+            <td>$${producto.precio.toLocaleString()}</td>
             <td>${producto.cantidad}</td>
-            <td>$${producto.precio * producto.cantidad}</td>
+            <td>$${(producto.precio * producto.cantidad).toLocaleString()}</td>
             <td><button onclick="eliminarDelCarrito(${producto.id})">X</button></td>
         `;
         contenidoCarrito.appendChild(fila);
         totalPrecio += producto.precio * producto.cantidad;
     });
 
+    // Mostrar el total de la compra
     document.getElementById("totalPrecio").textContent = totalPrecio.toLocaleString();
-    document.getElementById("totalPagar").textContent = (totalPrecio + 15000).toLocaleString();
+    document.getElementById("totalPagar").textContent = (totalPrecio + 15000).toLocaleString(); // Costo de domicilio agregado
 }
 
 // Función para eliminar un producto del carrito
@@ -57,7 +59,9 @@ function confirmarCompra() {
     const pais = document.getElementById("pais").value;
     const tipoTarjeta = document.getElementById("tipoTarjeta").value;
 
+    // Validar si los campos están completos
     if (numeroTarjeta && expiracion && codigo && nombreTitular && pais && tipoTarjeta) {
+        // Crear la promesa para la compra
         const promesaCompra = new Promise((resolve, reject) => {
             setTimeout(() => {
                 if (carrito.length > 20) {
@@ -67,7 +71,7 @@ function confirmarCompra() {
                 } else {
                     resolve("Compra confirmada. ¡Gracias por su compra!");
                 }
-            }, Math.random() * (3000 - 2000) + 2000); 
+            }, Math.random() * (3000 - 2000) + 2000); // Tiempo random entre 2 y 3 segundos
         });
 
         promesaCompra
@@ -81,7 +85,7 @@ function confirmarCompra() {
                 alert(error);
             });
 
-        document.querySelector("button[onclick='confirmarCompra()']").disabled = true;
+        document.querySelector("button[onclick='confirmarCompra()']").disabled = true; // Deshabilitar el botón
     } else {
         alert("Por favor, complete todos los datos de la tarjeta.");
     }

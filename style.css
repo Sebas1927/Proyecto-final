@@ -190,7 +190,7 @@ header {
     display: flex;
     align-items: left;
     padding: 10px;
-    background-color: #f8f9fa; /* Puedes cambiar el color de fondo */
+    background-color: #2b3a67; /* Puedes cambiar el color de fondo */
     justify-content: flex-start; /* Alinea el contenido a la izquierda */
   }
   
@@ -215,9 +215,56 @@ header {
   /* Estilo del título principal */
   h1 {
     font-size: 1.5em;
-    color: #333;
+    color: #cc5200;
     padding: 20px;
   }
-  
+  .detalle-cantidad-talla {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre los elementos */
+}
+
+.cantidad, .talla {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el label y el input/select */
+}
+
+.cantidad label, .talla label {
+    width: 100px; /* Ajusta el ancho según sea necesario */
+}
+
+/* Estilos para los productos */
+#catalogo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.producto {
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+}
+
+.producto h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.producto button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.producto button:hover {
+  background-color: #218838;
+}
+
+
   
   

@@ -401,18 +401,25 @@ function verDetalle(idProducto) {
       <h3>${producto.nombre}</h3>
       <p>Precio: $${producto.precio.toLocaleString()}</p>
       <p>${producto.descripcion}</p>
-      <label for="tallaProducto">Talla:</label>
-      <select id="tallaProducto">
-          <option value="S">S</option>
-          <option value="M">M</option>
-          <option value="L">L</option>
-          <option value="XL">XL</option>
-      </select>
-      <label for="cantidadProducto">Cantidad:</label>
-      <input type="number" id="cantidadProducto" min="1">
+      <div class="detalle-cantidad-talla">
+          <div class="cantidad">
+              <label for="cantidadProducto">Cantidad:</label>
+              <input type="number" id="cantidadProducto" min="1">
+          </div>
+          <div class="talla">
+              <label for="tallaProducto">Talla:</label>
+              <select id="tallaProducto">
+                  <option value="S">S</option>
+                  <option value="M">M</option>
+                  <option value="L">L</option>
+                  <option value="XL">XL</option>
+              </select>
+          </div>
+      </div>
       <button onclick="agregarAlCarrito(${producto.id})">Agregar al Carrito</button>
   `;
 }
+
 
 function filtrarProductos() {
     const marcaSeleccionada = document.getElementById('filtroTipo').value;
@@ -456,4 +463,41 @@ function limpiarFiltros() {
     document.getElementById('filtroTipo').value = '';
     document.getElementById('filtroEquipo').value = '';
     cargarProductos();
+}
+function agregarAlCarrito(idProducto) {
+  const cantidad = document.getElementById('cantidadProducto').value;
+  
+  if (cantidad > 0) {
+      // Lógica para agregar el producto al carrito
+      const producto = productos.find(prod => prod.id === idProducto);
+      
+      if (producto) {
+          // Asumiendo que tienes un array llamado `carrito` para almacenar los productos
+          carrito.push({ ...producto, cantidad: Number(cantidad) });
+          alert('Producto agregado al carrito.');
+          console.log('Carrito actual:', carrito);
+      } else {
+          alert('Error: Producto no encontrado.');
+      }
+  } else {
+      alert('La cantidad debe ser un número positivo.');
+  }
+}
+// Función para generar el catálogo dinámicamente
+function generarCatalogo() {
+  const catalogoContainer = document.getElementById("catalogo"); // Contenedor donde se van a agregar los productos
+  
+  productos.forEach(producto => {
+      const productoDiv = document.createElement("div");
+      productoDiv.classList.add("producto");
+      productoDiv.setAttribute("data-id", producto.id);
+      
+      productoDiv.innerHTML = `
+          <h3>${producto.nombre}</h3>
+          <p>Precio: $${producto.precio}</p>
+          <button onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
+      `;
+      
+      catalogoContainer.appendChild(productoDiv);
+  });
 }
