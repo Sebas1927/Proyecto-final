@@ -8,19 +8,19 @@ body {
     padding: 0;
   }
   
-  /* Encabezados y Pie de Página */
+
   header,
   footer {
     width: 100%;
     text-align: center;
     padding: 20px;
     background-color: #2b3a67;
-    color: white;
+    color: rgb(255, 255, 255);
   }
   
   h1,
   h2 {
-    color: #ffffff;
+    color: #000000;
   }
   
   .navegacion a {
@@ -50,7 +50,7 @@ body {
     background-color: #cc5200;
   }
   
-  /*Vista de Requerimientos de Compra */
+  
   #requerimientosCompra {
     max-width: 400px;
     width: 90%;
@@ -98,7 +98,7 @@ body {
     width: 90%;
   }
   
-  /* Sección izquierda: Lista de productos con scroll infinito */
+
   #listaProductos {
     flex: 2;
     max-height: 500px;
@@ -123,8 +123,8 @@ body {
     font-weight: bold;
   }
   
-  /* Sección derecha: Detalle del producto */
-  #detalleroducto {
+
+  #detalleProducto {
     flex: 1;
     padding: 20px;
     background-color: #ffe5d9;
@@ -132,7 +132,7 @@ body {
     border-radius: 8px;
   }
   
-  /* Vista del Carrito de Compra */
+
   #contenedorCarrito {
     display: flex;
     gap: 20px;
@@ -195,7 +195,7 @@ header {
   }
   
   /* Contenedor del logo y slogan */
-  .logo-container {
+  .logoContainer {
     display: flex;
     align-items: left;
   }

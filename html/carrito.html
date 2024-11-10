@@ -1,78 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carrito de Compra</title>
     <link rel="stylesheet" href="/style.css" />
-  </head>
-  <body>
+</head>
+<body>
+    <div class="logoContainer">
+        <img src="../imagen/logo.png" alt="Logo de la tienda" class="logo" />
+        <p class="slogan">Simplemente Fútbol</p>
+    </div>
     <header>
-      <h1>Carrito de Compra</h1>
+        <h1>Carrito de Compra</h1>
     </header>
-
     <main>
-      <section id="carritoCompra">
-        <div id="contenedorCarrito">
-          <!-- Sección izquierda: Tabla de productos seleccionados -->
-          <section id="tablaProductos">
-            <h2>Productos Seleccionados</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>Producto</th>
-                  <th>Precio</th>
-                  <th>Cantidad</th>
-                  <th>Total</th>
-                  <th>Eliminar</th>
-                </tr>
-              </thead>
-              <tbody id="contenidoCarrito">
-                <!-- Filas de productos generadas dinámicamente -->
-              </tbody>
-            </table>
-          </section>
+        <section id="carritoCompra">
+            <div id="contenedorCarrito">
+                <!-- Sección izquierda: Tabla de productos seleccionados -->
+                <section id="tablaProductos">
+                    <h2>Productos Seleccionados</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Total</th>
+                                <th>Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contenidoCarrito">
+                            <!-- Filas de productos generadas dinámicamente -->
+                        </tbody>
+                    </table>
+                    <div id="totalCompra">
+                        <p>Total de la compra: $<span id="totalPrecio">0</span></p>
+                        <p>Costo de domicilio: $15,000</p>
+                        <p>Total a pagar: $<span id="totalPagar">0</span></p>
+                    </div>
+                </section>
 
-          <!-- Sección derecha: Validación de información de tarjeta -->
-          <aside id="formularioTarjeta">
-            <h2>Información de Pago</h2>
-            <form id="form-tarjeta">
-              <label for="numTarjeta">Número de Tarjeta:</label>
-              <input type="text" id="numTarjeta" maxlength="16" required />
+                <!-- Sección derecha: Validación de información de tarjeta -->
+                <aside id="formularioTarjeta">
+                    <h2>Información de Pago</h2>
+                    <form id="formTarjeta">
+                        <label for="numTarjeta">Número de Tarjeta:</label>
+                        <input type="text" id="numTarjeta" maxlength="16" required />
 
-              <label for="expiracion">Fecha de Expiración (MM/AA):</label>
-              <input type="text" id="expiracion" placeholder="MM/AA" required />
+                        <label for="expiracion">Fecha de Expiración (MM/AA):</label>
+                        <input type="text" id="expiracion" placeholder="MM/AA" required />
 
-              <label for="codigo">Código de Seguridad:</label>
-              <input type="password" id="codigo" maxlength="3" required />
+                        <label for="codigo">Código de Seguridad:</label>
+                        <input type="password" id="codigo" maxlength="3" required />
 
-              <label for="nombre-titular">Nombre del Titular: </label>
-              <input type="text" id="nombre-titular" required />
+                        <label for="nombreTitular">Nombre del Titular: </label>
+                        <input type="text" id="nombreTitular" required />
 
-              <label for="pais">País de Emisión: </label>
-              <select id="pais" required>
-                <option value="Colombia">Colombia¿</option>
+                        <label for="pais">País de Emisión: </label>
+                        <select id="pais" required>
+                            <option value="Colombia">Colombia</option>
+                            <option value="México">México</option>
+                            <option value="España">España</option>
+                            <!-- Agrega más países aquí -->
+                        </select>
 
-                <option value="México">México</option>
-                <option value="España">España</option>
-              </select>
+                        <label for="tipoTarjeta">Tipo de Tarjeta: </label>
+                        <select id="tipoTarjeta" required>
+                            <option value="Mastercard">Mastercard</option>
+                            <option value="Visa">Visa</option>
+                            <option value="Prepagada">Prepagada</option>
+                        </select>
 
-              <button type="button" onclick="confirmarCompra()">
-                Confirmar Compra
-              </button>
-            </form>
-          </aside>
-        </div>
-      </section>
+                        <button type="button" onclick="confirmarCompra()">Confirmar Compra</button>
+                        <button type="button" onclick="limpiarCampos()">Limpiar Campos</button>
+                    </form>
+                </aside>
+            </div>
+        </section>
     </main>
 
     <!-- Botón para volver al catálogo de productos -->
     <footer>
-      <nav class="navegacion">
-        <a href="productos.html">Volver al Catálogo de Productos</a>
-      </nav>
+        <nav class="navegacion">
+            <a href="index.html">Cancelar Compra</a>
+            <a href="productos.html">Seguir Comprando</a>
+        </nav>
     </footer>
 
-     <script src="../javascript/carrito.js"></script> 
-  </body>
+    <script src="/javascript/compra.js"></script>
+</body>
 </html>

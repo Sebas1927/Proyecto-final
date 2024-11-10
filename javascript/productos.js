@@ -4,6 +4,7 @@ const productos = [
       nombre: "Camiseta FC Barcelona",
       precio: 50000,
       equipo: "FC Barcelona",
+      marca: "Nike",
       imagen: "https://fenixdeportes.com.co/products/camiseta-barcelona-2024",
     },
     {
@@ -11,6 +12,7 @@ const productos = [
       nombre: "Camiseta Real Madrid",
       precio: 55000,
       equipo: "Real Madrid",
+      marca: "Adidas",
       imagen:
         "https://www.adidas.co/camiseta-uniforme-local-real-madrid-23-24-ninos/IB0011.html",
     },
@@ -19,6 +21,7 @@ const productos = [
       nombre: "Camiseta Manchester United",
       precio: 52000,
       equipo: "Manchester United",
+      marca: "Adidas",
       imagen:
         "https://www.adidas.co/camiseta-local-manchester-united-23-24-ninos/IP1736.html",
     },
@@ -27,6 +30,7 @@ const productos = [
       nombre: "Camiseta Bayern Munich",
       precio: 53000,
       equipo: "Bayern Munich",
+      marca: "Adidas",
       imagen:
         "https://www.adidas.co/camiseta-uniforme-local-fc-bayern-23-24-ninos/IB1480.html",
     },
@@ -35,6 +39,7 @@ const productos = [
       nombre: "Camiseta Juventus",
       precio: 54000,
       equipo: "Juventus",
+      marca: "Adidas",
       imagen: "https://www.adidas.co/camiseta-local-juventus-24-25/IS8002.html",
     },
     {
@@ -42,6 +47,7 @@ const productos = [
       nombre: "Camiseta Paris Saint-Germain",
       precio: 56000,
       equipo: "Paris Saint-Germain",
+      marca: "Nike",
       imagen:
         "https://www.nike.com/es/t/primera-equipacion-stadium-paris-saint-germain-2024-25-camiseta-de-futbol-replica-dri-fit-z3f5Nq/FN8795-411",
     },
@@ -50,6 +56,7 @@ const productos = [
       nombre: "Camiseta Liverpool",
       precio: 51000,
       equipo: "Liverpool",
+      marca: "Nike",
       imagen:
         "https://www.nike.com/es/t/primera-equipacion-stadium-liverpool-fc-2024-25-camiseta-de-futbol-replica-dri-fit-QrNMjf/FN8798-688",
     },
@@ -58,6 +65,7 @@ const productos = [
       nombre: "Camiseta Chelsea",
       precio: 52000,
       equipo: "Chelsea",
+      marca: "Nike",
       imagen:
         "https://www.nike.com/es/t/primera-equipacion-match-chelsea-fc-2024-25-camiseta-de-futbol-authentic-dri-fit-adv-xD4lRc/FN8760-496",
     },
@@ -66,6 +74,7 @@ const productos = [
       nombre: "Camiseta Manchester City",
       precio: 53000,
       equipo: "Manchester City",
+      marca: "Puma",
       imagen:
         "https://eu.puma.com/es/es/pd/camiseta-original-manchester-city-1.%C2%AA-equipacion-24%2F25-para-hombre/775050.html?dwvar_775050_color=01",
     },
@@ -74,6 +83,7 @@ const productos = [
       nombre: "Camiseta Arsenal",
       precio: 54000,
       equipo: "Arsenal",
+      marca: "Adidas",
       imagen: "https://www.adidas.co/camiseta-local-arsenal-24-25/IT6141.html",
     },
     {
@@ -81,6 +91,7 @@ const productos = [
       nombre: "Camiseta Tottenham Hotspur",
       precio: 55000,
       equipo: "Tottenham Hotspur",
+      marca: "Nike",
       imagen:
         "https://www.nike.com/es/t/primera-equipacion-stadium-tottenham-hotspur-2024-25-camiseta-de-futbol-replica-dri-fit-WVSKR3/FN8794-101",
     },
@@ -89,6 +100,7 @@ const productos = [
       nombre: "Camiseta Inter Milan",
       precio: 56000,
       equipo: "Inter Milan",
+      marca: "Nike",
       imagen:
         "https://www.nike.com/es/t/primera-equipacion-stadium-inter-de-milan-2024-25-camiseta-de-futbol-replica-dri-fit-73FWDV/FN8787-440",
     },
@@ -97,6 +109,7 @@ const productos = [
       nombre: "Camiseta AC Milan",
       precio: 57000,
       equipo: "AC Milan",
+      marca: "Puma",
       imagen:
         "https://eu.puma.com/es/es/pd/camiseta-original-ac-milan-1.%C2%AA-equipacion-24%2F25-para-hombre/774949.html?dwvar_774949_color=01",
     },
@@ -105,6 +118,7 @@ const productos = [
       nombre: "Camiseta Borussia Dortmund",
       precio: 58000,
       equipo: "Borussia Dortmund",
+      marca: "Puma",
       imagen:
         "https://eu.puma.com/es/es/pd/camiseta-borussia-dortmund-copa-24%2F25-para-hombre/775680.html?dwvar_775680_color=01",
     },
@@ -113,6 +127,7 @@ const productos = [
       nombre: "Camiseta Atletico Madrid",
       precio: 59000,
       equipo: "Atletico Madrid",
+      marca: "Nike",
       imagen:
         "https://www.nike.com/es/t/primera-equipacion-stadium-atletico-de-madrid-2024-25-camiseta-de-futbol-replica-dri-fit-w0T5DC/FN8790-406",
     },
@@ -121,6 +136,7 @@ const productos = [
       nombre: "Camiseta Sevilla",
       precio: 60000,
       equipo: "Sevilla",
+      marca: "Castore",
       imagen:
         "https://shop.sevillafc.es/products/camiseta-2%C2%AA-champions-sevilla-fc-23-24-nino",
     },
@@ -129,6 +145,7 @@ const productos = [
       nombre: "Camiseta Roma",
       precio: 61000,
       equipo: "Roma",
+      marca: "Adidas",
       imagen: "https://www.adidas.co/camiseta-local-as-roma-23-24-/IK7166.html",
     },
     {
@@ -136,6 +153,7 @@ const productos = [
       nombre: "Camiseta Napoli",
       precio: 62000,
       equipo: "Napoli",
+      marca: "EA7",
       imagen:
         "https://futboldeprimera.com.co/producto/camiseta-napoli-2023-2024-local-azul-version-jugador/",
     },
@@ -144,6 +162,7 @@ const productos = [
       nombre: "Camiseta Lazio",
       precio: 63000,
       equipo: "Lazio",
+      marca: "Mizuno",
       imagen:
         "https://shopee.com.co/S.S-.-Camiseta-Lazio-23-24-F%C3%BAtbol-Casa-Fuera-De-Hombres-Deportes-Calidad-Superior-S-4XL-Fans-Versi%C3%B3n-i.887386923.19856633376",
     },
@@ -152,6 +171,7 @@ const productos = [
       nombre: "Camiseta Ajax",
       precio: 64000,
       equipo: "Ajax",
+      marca: "Adidas",
       imagen:
         "https://www.adidas.co/camiseta-local-ajax-amsterdam-23-24/HZ7725.html",
     },
@@ -160,6 +180,7 @@ const productos = [
       nombre: "Camiseta Benfica",
       precio: 65000,
       equipo: "Benfica",
+      marca: "Adidas",
       imagen:
         "https://www.slbenfica.pt/es-es/loja/equipamentos/principal/replica-da-camisola-principal-do-sl-benfica-20242025",
     },
@@ -168,6 +189,7 @@ const productos = [
       nombre: "Camiseta Porto",
       precio: 66000,
       equipo: "Porto",
+      marca: "New Balance",
       imagen:
         "https://www.r21imports.com.br/pe/productos/camiseta-porto-local-24-25-azul-y-blanca-aficionado-hombre-new-balance/",
     },
@@ -176,6 +198,7 @@ const productos = [
       nombre: "Camiseta Sporting CP",
       precio: 67000,
       equipo: "Sporting CP",
+      marca: "Nike",
       imagen:
         "https://shopee.com.co/2024-25-Temporada-Sporting-CP-Home-F%C3%BAtbol-Camiseta-De-Manga-Corta-Deportiva-i.871501433.28300985006",
     },
@@ -184,6 +207,7 @@ const productos = [
       nombre: "Camiseta Celtic",
       precio: 68000,
       equipo: "Celtic",
+      marca: "Adidas",
       imagen:
         "https://www.adidas.es/camiseta-primera-equipacion-celtic-fc-23-24/HY3343.html",
     },
@@ -192,6 +216,7 @@ const productos = [
       nombre: "Camiseta Rangers",
       precio: 69000,
       equipo: "Rangers",
+      marca: "Castore",
       imgaen:
         "https://shopee.com.co/Ranger.s-Camiseta-De-F%C3%BAtbol-Deportiva-Camisetas-De-Hombre-2024-25-Calidad-Superior-S-4XL-Versi%C3%B3n-De-Los-Aficionados-i.1356729325.29361493617?sp_atk=559e853f-2714-4adf-b43b-c9136bc6a7b6&xptdk=559e853f-2714-4adf-b43b-c9136bc6a7b6",
     },
@@ -200,6 +225,7 @@ const productos = [
       nombre: "Camiseta Galatasaray",
       precio: 70000,
       equipo: "Galatasaray",
+      marca: "Puma",
       imagen:
         "https://shopee.com.co/Camiseta-Galatasaray-24-25-Home-Away-De-F%C3%BAtbol-Para-Hombre-i.1346573854.25485605644",
     },
@@ -208,6 +234,7 @@ const productos = [
       nombre: "Camiseta Fenerbahce",
       precio: 71000,
       equipo: "Fenerbahce",
+      marca: "Puma",
       imagen:
         "https://shopee.com.co/Camiseta-De-F%C3%BAtbol-De-La-Mejor-Calidad-2024-2025-Fenerbah%C3%A7e-S.K-i.968543119.18876136102",
     },
@@ -216,6 +243,7 @@ const productos = [
       nombre: "Camiseta Besiktas",
       precio: 72000,
       equipo: "Besiktas",
+      marca: "Adidas",
       imagen:
         "https://planetafobal.com/2023/06/camisetas-adidas-del-besiktas-2023-24/#gallery-82164-1",
     },
@@ -224,14 +252,16 @@ const productos = [
       nombre: "Camiseta Olympique Lyon",
       precio: 73000,
       equipo: "Olympique Lyon",
+      marca: "Adidas",
       imagen:
         "https://planetafobal.com/2023/06/camisetas-adidas-del-besiktas-2023-24/#gallery-82164-1",
     },
     {
       id: 30,
-      nombre: "Camiseta Olympique Marseille",
+      nombre: "Camiseta Olympique Marsella",
       precio: 74000,
-      equipo: "Olympique Marseille",
+      equipo: "Olympique Marsella",
+      marca: "Puma",
       imagen:
         "https://www.footballkitarchive.com/es/olympique-marseille-2023-24-home-kit/",
     },
@@ -240,6 +270,7 @@ const productos = [
       nombre: "Camiseta Monaco",
       precio: 75000,
       equipo: "Monaco",
+      marca: "Kappa",
       imagen: "https://www.kappa-col.com/deportes/futbol/as-monaco",
     },
     {
@@ -247,6 +278,7 @@ const productos = [
       nombre: "Camiseta PSV Eindhoven",
       precio: 76000,
       equipo: "PSV Eindhoven",
+      marca: "Puma",
       imagen:
         "https://www.amazon.com/-/es/PUMA-Camiseta-Eindhoven-Home-23-XL/dp/B0B782DFJF",
     },
@@ -255,6 +287,7 @@ const productos = [
       nombre: "Camiseta Feyenoord",
       precio: 77000,
       equipo: "Feyenoord",
+      marca: "Castore",
       imagen: "https://es.castore.com/products/heren-feyenoord-thuisshirt-2324",
     },
     {
@@ -262,6 +295,7 @@ const productos = [
       nombre: "Camiseta Anderlecht",
       precio: 78000,
       equipo: "Anderlecht",
+      marca: "Joma",
       imagen:
         "https://www.footballkitarchive.com/es/rsc-anderlecht-2023-24-third-kit/",
     },
@@ -270,6 +304,7 @@ const productos = [
       nombre: "Camiseta Club Brugge",
       precio: 79000,
       equipo: "Club Brugge",
+      marca: "Castore",
       imagen:
         "https://es.castore.com/products/club-brugge-mens-24-25-home-ss-shirt",
     },
@@ -278,6 +313,7 @@ const productos = [
       nombre: "Camiseta Shakhtar Donetsk",
       precio: 80000,
       equipo: "Shakhtar Donetsk",
+      marca: "Puma",
       imagen:
         "https://www.footballkitarchive.com/es/shakhtar-donetsk-2022-23-home-kit/",
     },
@@ -286,6 +322,7 @@ const productos = [
       nombre: "Camiseta Dynamo Kyiv",
       precio: 81000,
       equipo: "Dynamo Kyiv",
+      marca: "New Balance",
       imagen:
         "https://www.tradeinn.com/goalinn/es/new-balance-camiseta-de-manga-corta-primera-equipacion-fc-dynamo-kyiv-22-23/139043270/p",
     },
@@ -294,6 +331,7 @@ const productos = [
       nombre: "Camiseta Zenit",
       precio: 82000,
       equipo: "Zenit",
+      marca: "Kelme",
       imagen:
         "https://www.footballkitarchive.com/es/zenit-saint-petersburg-2023-24-home-kit/",
     },
@@ -302,6 +340,7 @@ const productos = [
       nombre: "Camiseta Spartak Moscow",
       precio: 83000,
       equipo: "Spartak Moscow",
+      marca: "Jogel",
       imagen:
         "https://www.footballkitarchive.com/es/spartak-moscow-2-2024-home-kit/",
     },
@@ -310,81 +349,111 @@ const productos = [
       nombre: "Camiseta Red Bull Salzburg",
       precio: 84000,
       equipo: "Red Bull Salzburg",
+      marca: "Puma",
       imagen:
         "https://www.footballkitarchive.com/es/red-bull-salzburg-2022-23-away-kit/",
     },
   ];
 
-  
-// Detectar scroll para cargar más productos
-document
-.getElementById("listaProductos")
-.addEventListener("scroll", function () {
-  const { scrollTop, scrollHeight, clientHeight } = this;
-  if (scrollTop + clientHeight >= scrollHeight) {
-    cargarProductos();
-  }
-});
-
-// Función para mostrar el detalle del producto seleccionado
-function mostrarDetalleProducto(idProducto) {
-const producto = productos.find((prod) => prod.id === idProducto);
-const detalleContainer = document.getElementById("productoSeleccionado");
-detalleContainer.innerHTML = `
-      <h3>${producto.nombre}</h3>
-      <p>Equipo: ${producto.equipo}</p>
-      <p>Precio: $${producto.precio}</p>
-  `;
-}
-let producto = []; // Array que contiene todos los productos
-let productosMostrados = 0; // Contador de productos mostrados
+let productosMostrados = 0;
+let mensajeFinalMostrado = false;
 
 function cargarProductos() {
     const listaProductos = document.getElementById('listaProductos');
-    for (let i = productosMostrados; i < productosMostrados + 15 && i < productos.length; i++) {
-        const producto = productos[i];
-        const tarjetaProducto = document.createElement('div');
-        tarjetaProducto.classList.add('tarjeta');
-        tarjetaProducto.innerHTML = `
-            <h3>${producto.nombre}</h3>
-            <p>Precio: ${producto.precio}</p>
-            <p>Descripción: ${producto.descripcion}</p>
-            <button onclick="verDetalle(${i})">Ver Detalle</button>
-        `;
-        listaProductos.appendChild(tarjetaProducto);
-    }
-    productosMostrados += 15;
-    if (productosMostrados >= productos.length) {
-        const mensajeFinal = document.createElement('p');
-        mensajeFinal.textContent = 'No hay más productos por cargar.';
-        listaProductos.appendChild(mensajeFinal);
-    }
+    setTimeout(() => {
+        for (let i = productosMostrados; i < productosMostrados + 20 && i < productos.length; i++) {
+            const producto = productos[i];
+            const tarjetaProducto = document.createElement('div');
+            tarjetaProducto.classList.add('tarjeta');
+            tarjetaProducto.innerHTML = `
+                <h3>${producto.nombre}</h3>
+                <p>Precio: $${producto.precio.toLocaleString()}</p>
+                <p>Descripción: ${producto.descripcion}</p>
+                <button onclick="verDetalle(${producto.id})">Ver Detalle</button>
+            `;
+            listaProductos.appendChild(tarjetaProducto);
+        }
+        productosMostrados += 20;
+        if (productosMostrados >= productos.length && !mensajeFinalMostrado) {
+            const mensajeFinal = document.createElement('p');
+            mensajeFinal.textContent = 'No hay más productos por cargar.';
+            listaProductos.appendChild(mensajeFinal);
+            mensajeFinalMostrado = true;
+        }
+    }, 1000); // Retraso de 1000 milisegundos (1 segundo)
 }
 
-window.addEventListener('scroll', () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+document.getElementById('listaProductos').addEventListener('scroll', function () {
+    const { scrollTop, scrollHeight, clientHeight } = this;
+    if (scrollTop + clientHeight >= scrollHeight) {
         cargarProductos();
     }
 });
 
-function verDetalle(index) {
-    const producto = productos[index];
-    const verDetalle = document.getElementById('verDetalle');
-    verDetalle.innerHTML = `
-        <h3>${producto.nombre}</h3>
-        <p>${producto.descripcion}</p>
-        <label for="cantidadProducto">Cantidad:</label>
-        <input type="number" id="cantidadProducto" min="1">
-        <button onclick="agregarAlCarrito(${index})">Agregar al Carrito</button>
-    `;
+document.addEventListener('DOMContentLoaded', function() {
+    cargarProductos();
+});
+
+function verDetalle(idProducto) {
+  const producto = productos.find(prod => prod.id === idProducto);
+  const detalleContainer = document.getElementById('productoSeleccionado');
+  detalleContainer.innerHTML = `
+      <h3>${producto.nombre}</h3>
+      <p>Precio: $${producto.precio.toLocaleString()}</p>
+      <p>${producto.descripcion}</p>
+      <label for="tallaProducto">Talla:</label>
+      <select id="tallaProducto">
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+      </select>
+      <label for="cantidadProducto">Cantidad:</label>
+      <input type="number" id="cantidadProducto" min="1">
+      <button onclick="agregarAlCarrito(${producto.id})">Agregar al Carrito</button>
+  `;
 }
 
-function agregarAlCarrito(index) {
-    const cantidad = document.getElementById('cantidadProducto').value;
-    if (cantidad > 0) {
-        // Añadir al carrito y mostrar confirmación
-        alert('Producto agregado al carrito.');
-    } else {
-        alert('La cantidad debe ser un número positivo.');
-    }
+function filtrarProductos() {
+    const marcaSeleccionada = document.getElementById('filtroTipo').value;
+    const listaProductos = document.getElementById('listaProductos');
+    listaProductos.innerHTML = '';
+    productosMostrados = 0;
+    const productosFiltrados = marcaSeleccionada === '' ? productos : productos.filter(producto => producto.marca === marcaSeleccionada);
+    productosFiltrados.forEach((producto, index) => {
+        const tarjetaProducto = document.createElement('div');
+        tarjetaProducto.classList.add('tarjeta');
+        tarjetaProducto.innerHTML = `
+            <h3>${producto.nombre}</h3>
+            <p>Precio: $${producto.precio.toLocaleString()}</p>
+            <p>Descripción: ${producto.descripcion}</p>
+            <button onclick="verDetalle(${producto.id})">Ver Detalle</button>
+        `;
+        listaProductos.appendChild(tarjetaProducto);
+    });
+}
+
+function filtrarPorEquipo() {
+    const equipoSeleccionado = document.getElementById('filtroEquipo').value.toLowerCase();
+    const listaProductos = document.getElementById('listaProductos');
+    listaProductos.innerHTML = '';
+    productosMostrados = 0;
+    const productosFiltrados = equipoSeleccionado === '' ? productos : productos.filter(producto => producto.equipo.toLowerCase().includes(equipoSeleccionado));
+    productosFiltrados.forEach((producto, index) => {
+        const tarjetaProducto = document.createElement('div');
+        tarjetaProducto.classList.add('tarjeta');
+        tarjetaProducto.innerHTML = `
+            <h3>${producto.nombre}</h3>
+            <p>Precio: $${producto.precio.toLocaleString()}</p>
+            <p>Descripción: ${producto.descripcion}</p>
+            <button onclick="verDetalle(${producto.id})">Ver Detalle</button>
+        `;
+        listaProductos.appendChild(tarjetaProducto);
+    });
+}
+
+function limpiarFiltros() {
+    document.getElementById('filtroTipo').value = '';
+    document.getElementById('filtroEquipo').value = '';
+    cargarProductos();
 }

@@ -28,6 +28,6 @@ document.getElementById('iniciarCompra').addEventListener('click', function () {
         mensajeErrorElem.textContent = mensajeError;
     } else {
         mensajeErrorElem.textContent = '';
-        window.location.href = 'productos.html'; // Redirige a la vista de productos si todo es correcto
+        window.location.href = 'productos.html'; 
     }
 });
