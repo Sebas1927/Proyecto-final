@@ -33,7 +33,7 @@ body {
     color: #cc5200;
   }
   
-  /* Botones Generales */
+  
   button {
     padding: 10px;
     margin-top: 10px;
@@ -82,7 +82,7 @@ body {
     width: 100%;
   }
   
-  /* Vista de Productos */
+ 
   #filtros {
     display: flex;
     justify-content: space-between;
@@ -122,6 +122,12 @@ body {
     color: #2b3a67;
     font-weight: bold;
   }
+  .productoImg {
+    width: 100%;  
+    height: auto;
+    max-width: 200px; 
+    margin-bottom: 10px; 
+}
   
 
   #detalleProducto {
@@ -141,7 +147,7 @@ body {
     margin-top: 20px;
   }
   
-  /* Tabla de productos en el carrito */
+  
   #tablaProductos {
     flex: 2;
     background-color: #e6f7ff;
@@ -162,7 +168,7 @@ body {
     text-align: center;
   }
   
-  /* Formulario de pago en el carrito */
+ 
   #formularioTarjeta {
     flex: 1;
     background-color: #ffe5d9;
@@ -185,23 +191,23 @@ body {
     border-radius: 4px;
     width: 100%;
   }
-  /* Estilos para el header */
+ 
 header {
     display: flex;
     align-items: left;
     padding: 10px;
-    background-color: #2b3a67; /* Puedes cambiar el color de fondo */
-    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+    background-color: #2b3a67; 
+    justify-content: flex-start; 
   }
   
-  /* Contenedor del logo y slogan */
+  
   .logoContainer {
     display: flex;
     align-items: left;
   }
   
   .logo {
-    width: 50px; /* Ajusta el tamaño del logo */
+    width: 50px; 
     height: auto;
     margin-right: 10px;
   }
@@ -209,10 +215,10 @@ header {
   .slogan {
     font-size: 1.2em;
     font-weight: bold;
-    color: #333; /* Cambia el color según prefieras */
+    color: #333;
   }
   
-  /* Estilo del título principal */
+ 
   h1 {
     font-size: 1.5em;
     color: #cc5200;
@@ -221,20 +227,20 @@ header {
   .detalle-cantidad-talla {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Espacio entre los elementos */
+    gap: 20px; 
 }
 
 .cantidad, .talla {
     display: flex;
     align-items: center;
-    gap: 10px; /* Espacio entre el label y el input/select */
+    gap: 10px; 
 }
 
 .cantidad label, .talla label {
-    width: 100px; /* Ajusta el ancho según sea necesario */
+    width: 100px; 
 }
 
-/* Estilos para los productos */
+
 #catalogo {
   display: flex;
   flex-wrap: wrap;
@@ -266,5 +272,81 @@ header {
 }
 
 
-  
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+thead th {
+  background-color: purple;
+  color: white;
+  text-align: left;
+  padding: 10px;
+  border-bottom: 2px solid #ddd;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+button {
+  background-color: #cc5200;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #cc5200;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+#totalCompra {
+  text-align: right;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 10px;
+  border-top: 2px solid #ddd;
+}
+
+/* Responsividad */
+@media screen and (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+      display: block;
+  }
+
+  td {
+      text-align: right;
+      padding-left: 50%;
+      position: relative;
+  }
+
+  td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+      text-align: left;
+  }
+
+  thead {
+      display: none;
+  }
+}
+
   

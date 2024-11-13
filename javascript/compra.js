@@ -1,4 +1,7 @@
-document.getElementById('iniciarCompra').addEventListener('click', function () {
+document.getElementById('iniciarCompra').addEventListener('click', function(event) {
+    event.preventDefault();  // Prevenir el comportamiento por defecto del botón
+
+    // Obtener los valores de los campos
     const nombre = document.getElementById('nombre').value.trim();
     const presupuesto = document.getElementById('presupuesto').value.trim();
     const cantidad = document.getElementById('cantidad').value.trim();
@@ -7,6 +10,7 @@ document.getElementById('iniciarCompra').addEventListener('click', function () {
 
     let mensajeError = '';
 
+    // Validaciones
     if (!nombre || nombre.length > 20) {
         mensajeError += 'El nombre es obligatorio y no debe superar 20 caracteres. ';
     }
@@ -23,11 +27,11 @@ document.getElementById('iniciarCompra').addEventListener('click', function () {
         mensajeError += 'Debe seleccionar un tipo de entrega. ';
     }
 
-    const mensajeErrorElem = document.getElementById('mensajeError');
+    // Mostrar los mensajes de error si hay
     if (mensajeError) {
-        mensajeErrorElem.textContent = mensajeError;
+        alert(mensajeError);
     } else {
-        mensajeErrorElem.textContent = '';
-        window.location.href = 'productos.html'; 
+        // Si todo está correcto, redirigir a productos.html
+        window.location.href = "productos.html";
     }
 });
