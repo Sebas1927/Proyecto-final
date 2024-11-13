@@ -1,1 +1,2 @@
 # Proyecto-final
+Este proyecto consiste en un sistema de gestión de compras de camisetas de fútbol llamada SIMPLEMENTE FÚTBOL. Contiene funcionalidades como selecciona de requisitos de compra, la visualización de productos, el filtro y búsqueda de productos y gestión del carrito de compras. El sistemas permite que los usuarios visualicen el detalle de cada producto y que procedan con el proceso de compra.
