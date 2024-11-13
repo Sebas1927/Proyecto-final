@@ -1,43 +1,58 @@
-let carrito = [];
+// Recupera el carrito de localStorage al cargar la página del carrito
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let totalPrecio = 0;
 
-// Función para agregar productos al carrito
-function agregarAlCarrito(idProducto) {
-    const producto = productos.find((p) => p.id === idProducto);
-    const productoEnCarrito = carrito.find((p) => p.id === idProducto);
-
-    if (productoEnCarrito) {
-        productoEnCarrito.cantidad += 1;
-    } else {
-        carrito.push({ ...producto, cantidad: 1 });
-    }
-    actualizarCarrito();
-}
-
-// Función para actualizar el carrito
+// Función para actualizar el carrito y mostrar los productos en la tabla
 function actualizarCarrito() {
     const contenidoCarrito = document.getElementById("contenidoCarrito");
-    contenidoCarrito.innerHTML = "";
+    contenidoCarrito.innerHTML = ""; // Limpiar la tabla antes de llenarla
 
     let totalPrecio = 0;
 
-    carrito.slice(0, 20).forEach((producto) => { // Solo mostrar los primeros 20 productos
+    // Recuperar el carrito de localStorage
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    // Iterar sobre los productos en el carrito
+    carrito.forEach((producto) => {
         const fila = document.createElement("tr");
         fila.innerHTML = `
             <td>${producto.nombre}</td>
             <td>$${producto.precio.toLocaleString()}</td>
             <td>${producto.cantidad}</td>
             <td>$${(producto.precio * producto.cantidad).toLocaleString()}</td>
-            <td><button onclick="eliminarDelCarrito(${producto.id})">X</button></td>
+            <td><button onclick="eliminarDelCarrito(${producto.id})">Eliminar</button></td>
         `;
         contenidoCarrito.appendChild(fila);
         totalPrecio += producto.precio * producto.cantidad;
     });
 
+    // Actualizar el total
+    document.getElementById("totalPrecio").textContent = totalPrecio.toLocaleString();
+    document.getElementById("totalPagar").textContent = (totalPrecio + 15000).toLocaleString(); // Incluye el costo del domicilio
+}
+
+// Llamar a actualizarCarrito cuando la página cargue
+document.addEventListener("DOMContentLoaded", actualizarCarrito);
+
+
+// Función para eliminar un producto del carrito
+function eliminarDelCarrito(idProducto) {
+    carrito = carrito.filter((p) => p.id !== idProducto);
+
+    // Actualiza el carrito en localStorage
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    
+    actualizarCarrito();
+}
+
+// Carga el carrito al iniciar
+document.addEventListener("DOMContentLoaded", actualizarCarrito);
+
+
     // Mostrar el total de la compra
     document.getElementById("totalPrecio").textContent = totalPrecio.toLocaleString();
     document.getElementById("totalPagar").textContent = (totalPrecio + 15000).toLocaleString(); // Costo de domicilio agregado
-}
+
 
 // Función para eliminar un producto del carrito
 function eliminarDelCarrito(idProducto) {
@@ -50,7 +65,6 @@ function limpiarCampos() {
     document.getElementById("formTarjeta").reset();
 }
 
-// Función para confirmar la compra
 function confirmarCompra() {
     const numeroTarjeta = document.getElementById("numTarjeta").value;
     const expiracion = document.getElementById("expiracion").value;
@@ -58,10 +72,11 @@ function confirmarCompra() {
     const nombreTitular = document.getElementById("nombreTitular").value;
     const pais = document.getElementById("pais").value;
     const tipoTarjeta = document.getElementById("tipoTarjeta").value;
+    const botonConfirmar = document.querySelector("button[onclick='confirmarCompra()']");
 
-    // Validar si los campos están completos
     if (numeroTarjeta && expiracion && codigo && nombreTitular && pais && tipoTarjeta) {
-        // Crear la promesa para la compra
+        botonConfirmar.disabled = true;  // Deshabilitar el botón
+
         const promesaCompra = new Promise((resolve, reject) => {
             setTimeout(() => {
                 if (carrito.length > 20) {
@@ -78,14 +93,15 @@ function confirmarCompra() {
             .then((mensaje) => {
                 alert(mensaje);
                 carrito = []; // Vaciar el carrito después de la compra
+                localStorage.setItem("carrito", JSON.stringify(carrito)); // Actualizar el localStorage
                 actualizarCarrito();
                 window.location.href = "index.html"; // Redirigir a la página inicial
             })
             .catch((error) => {
                 alert(error);
+                botonConfirmar.disabled = false; // Habilitar el botón si hay un error
             });
 
-        document.querySelector("button[onclick='confirmarCompra()']").disabled = true; // Deshabilitar el botón
     } else {
         alert("Por favor, complete todos los datos de la tarjeta.");
     }

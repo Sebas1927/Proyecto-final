@@ -5,7 +5,7 @@ const productos = [
       precio: 50000,
       equipo: "FC Barcelona",
       marca: "Nike",
-      imagen: "https://fenixdeportes.com.co/products/camiseta-barcelona-2024",
+      imagen: "imagen/barcelona.png"
     },
     {
       id: 2,
@@ -354,7 +354,6 @@ const productos = [
         "https://www.footballkitarchive.com/es/red-bull-salzburg-2022-23-away-kit/",
     },
   ];
-
 let productosMostrados = 0;
 let mensajeFinalMostrado = false;
 
@@ -380,12 +379,12 @@ function cargarProductos() {
             listaProductos.appendChild(mensajeFinal);
             mensajeFinalMostrado = true;
         }
-    }, 1000); // Retraso de 1000 milisegundos (1 segundo)
+    }, 1000);
 }
 
-document.getElementById('listaProductos').addEventListener('scroll', function () {
-    const { scrollTop, scrollHeight, clientHeight } = this;
-    if (scrollTop + clientHeight >= scrollHeight) {
+window.addEventListener('scroll', function () {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    if (scrollTop + clientHeight >= scrollHeight - 5) {
         cargarProductos();
     }
 });
@@ -395,109 +394,51 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function verDetalle(idProducto) {
-  const producto = productos.find(prod => prod.id === idProducto);
-  const detalleContainer = document.getElementById('productoSeleccionado');
-  detalleContainer.innerHTML = `
-      <h3>${producto.nombre}</h3>
-      <p>Precio: $${producto.precio.toLocaleString()}</p>
-      <p>${producto.descripcion}</p>
-      <div class="detalle-cantidad-talla">
-          <div class="cantidad">
-              <label for="cantidadProducto">Cantidad:</label>
-              <input type="number" id="cantidadProducto" min="1">
-          </div>
-          <div class="talla">
-              <label for="tallaProducto">Talla:</label>
-              <select id="tallaProducto">
-                  <option value="S">S</option>
-                  <option value="M">M</option>
-                  <option value="L">L</option>
-                  <option value="XL">XL</option>
-              </select>
-          </div>
-      </div>
-      <button onclick="agregarAlCarrito(${producto.id})">Agregar al Carrito</button>
-  `;
-}
-
-
-function filtrarProductos() {
-    const marcaSeleccionada = document.getElementById('filtroTipo').value;
-    const listaProductos = document.getElementById('listaProductos');
-    listaProductos.innerHTML = '';
-    productosMostrados = 0;
-    const productosFiltrados = marcaSeleccionada === '' ? productos : productos.filter(producto => producto.marca === marcaSeleccionada);
-    productosFiltrados.forEach((producto, index) => {
-        const tarjetaProducto = document.createElement('div');
-        tarjetaProducto.classList.add('tarjeta');
-        tarjetaProducto.innerHTML = `
-            <h3>${producto.nombre}</h3>
-            <p>Precio: $${producto.precio.toLocaleString()}</p>
-            <p>Descripción: ${producto.descripcion}</p>
-            <button onclick="verDetalle(${producto.id})">Ver Detalle</button>
-        `;
-        listaProductos.appendChild(tarjetaProducto);
-    });
-}
-
-function filtrarPorEquipo() {
-    const equipoSeleccionado = document.getElementById('filtroEquipo').value.toLowerCase();
-    const listaProductos = document.getElementById('listaProductos');
-    listaProductos.innerHTML = '';
-    productosMostrados = 0;
-    const productosFiltrados = equipoSeleccionado === '' ? productos : productos.filter(producto => producto.equipo.toLowerCase().includes(equipoSeleccionado));
-    productosFiltrados.forEach((producto, index) => {
-        const tarjetaProducto = document.createElement('div');
-        tarjetaProducto.classList.add('tarjeta');
-        tarjetaProducto.innerHTML = `
-            <h3>${producto.nombre}</h3>
-            <p>Precio: $${producto.precio.toLocaleString()}</p>
-            <p>Descripción: ${producto.descripcion}</p>
-            <button onclick="verDetalle(${producto.id})">Ver Detalle</button>
-        `;
-        listaProductos.appendChild(tarjetaProducto);
-    });
-}
-
-function limpiarFiltros() {
-    document.getElementById('filtroTipo').value = '';
-    document.getElementById('filtroEquipo').value = '';
-    cargarProductos();
+    const producto = productos.find(prod => prod.id === idProducto);
+    const detalleContainer = document.getElementById('productoSeleccionado');
+    detalleContainer.innerHTML = `
+        <h3>${producto.nombre}</h3>
+        <p>Precio: $${producto.precio.toLocaleString()}</p>
+        <p>${producto.descripcion}</p>
+        <div class="detalle-cantidad-talla">
+            <div class="cantidad">
+                <label for="cantidadProducto">Cantidad:</label>
+                <input type="number" id="cantidadProducto" min="1">
+            </div>
+            <div class="talla">
+                <label for="tallaProducto">Talla:</label>
+                <select id="tallaProducto">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="agregarAlCarrito(${producto.id})">Agregar al Carrito</button>
+    `;
 }
 function agregarAlCarrito(idProducto) {
   const cantidad = document.getElementById('cantidadProducto').value;
-  
   if (cantidad > 0) {
-      // Lógica para agregar el producto al carrito
       const producto = productos.find(prod => prod.id === idProducto);
-      
       if (producto) {
-          // Asumiendo que tienes un array llamado `carrito` para almacenar los productos
-          carrito.push({ ...producto, cantidad: Number(cantidad) });
+          const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+          const productoEnCarrito = carrito.find(p => p.id === idProducto);
+          
+          if (productoEnCarrito) {
+              productoEnCarrito.cantidad += Number(cantidad);
+          } else {
+              carrito.push({ ...producto, cantidad: Number(cantidad) });
+          }
+          
+          localStorage.setItem('carrito', JSON.stringify(carrito));
           alert('Producto agregado al carrito.');
-          console.log('Carrito actual:', carrito);
+          
       } else {
           alert('Error: Producto no encontrado.');
       }
   } else {
       alert('La cantidad debe ser un número positivo.');
   }
-}
-// Función para generar el catálogo dinámicamente
-function generarCatalogo() {
-  const catalogoContainer = document.getElementById("catalogo"); // Contenedor donde se van a agregar los productos
-  
-  productos.forEach(producto => {
-      const productoDiv = document.createElement("div");
-      productoDiv.classList.add("producto");
-      productoDiv.setAttribute("data-id", producto.id);
-      
-      productoDiv.innerHTML = `
-          <h3>${producto.nombre}</h3>
-          <p>Precio: $${producto.precio}</p>
-          <button onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
-      `;
-      
-      catalogoContainer.appendChild(productoDiv);
-  });
 }
